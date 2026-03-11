@@ -35,3 +35,22 @@ type StepLogData struct {
 	Level  string `json:"level,omitempty"`  // "error", "warn", "info"
 	Stream bool   `json:"stream,omitempty"`
 }
+
+type ExecutionStateData struct {
+	WorkflowName   string                    `json:"workflow_name"`
+	Status         string                    `json:"status"`
+	Steps          map[string]*StepStateData `json:"steps,omitempty"`
+	GroupParams    map[string]any            `json:"group_params,omitempty"`
+	IdempotencyKey string                    `json:"idempotency_key,omitempty"`
+	Params         map[string]any            `json:"params,omitempty"`
+	ErrorMessage   string                    `json:"error_message,omitempty"`
+}
+
+type StepStateData struct {
+	Status     string `json:"status"`
+	OnRecovery string `json:"on_recovery,omitempty"`
+	StartedAt  string `json:"started_at,omitempty"`
+	FinishedAt string `json:"finished_at,omitempty"`
+	ErrorMsg   string `json:"error_message,omitempty"`
+	ErrorCode  string `json:"error_code,omitempty"`
+}
