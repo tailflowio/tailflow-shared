@@ -9,8 +9,18 @@ export type {
   StepOutputData,
   StepInputData,
   WorkflowEvent,
+  ExecutionStateData,
+  StepStateData,
 } from './types/events'
 export { ALL_EVENT_TYPES } from './types/events'
+
+export type {
+  GroupSummary,
+  GroupExecution,
+  GroupDetail,
+  GroupMatrixCell,
+  GroupMatrixRow,
+} from './types/groups'
 
 export type {
   HeartbeatMetrics,

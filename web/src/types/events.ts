@@ -3,12 +3,14 @@ export type EventType =
   | 'step.started' | 'step.completed' | 'step.failed' | 'step.skipped'
   | 'step.log' | 'step.waiting' | 'step.input' | 'step.output' | 'step.goto'
   | 'metrics'
+  | 'execution.state'
 
 export const ALL_EVENT_TYPES: EventType[] = [
   'workflow.started', 'workflow.completed',
   'step.started', 'step.completed', 'step.failed', 'step.skipped',
   'step.log', 'step.waiting', 'step.input', 'step.output', 'step.goto',
   'metrics',
+  'execution.state',
 ]
 
 // Unified format for display in shared components.
@@ -56,6 +58,25 @@ export interface StepInputData {
   config?: unknown
   trigger?: unknown
   deps?: unknown
+}
+
+export interface ExecutionStateData {
+  workflow_name: string
+  status: string
+  steps?: Record<string, StepStateData>
+  group_params?: Record<string, unknown>
+  idempotency_key?: string
+  params?: Record<string, unknown>
+  error_message?: string
+}
+
+export interface StepStateData {
+  status: string
+  on_recovery?: string
+  started_at?: string
+  finished_at?: string
+  error_message?: string
+  error_code?: string
 }
 
 // WorkflowEvent is the raw event shape used by the agent SSE stream.
