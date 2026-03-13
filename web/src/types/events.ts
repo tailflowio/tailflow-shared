@@ -64,7 +64,7 @@ export interface ExecutionStateData {
   workflow_name: string
   status: string
   steps?: Record<string, StepStateData>
-  group_params?: Record<string, unknown>
+  group_key?: string
   idempotency_key?: string
   params?: Record<string, unknown>
   error_message?: string
