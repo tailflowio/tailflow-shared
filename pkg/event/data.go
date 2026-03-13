@@ -40,10 +40,13 @@ type ExecutionStateData struct {
 	WorkflowName   string                    `json:"workflow_name"`
 	Status         string                    `json:"status"`
 	Steps          map[string]*StepStateData `json:"steps,omitempty"`
-	GroupKey       string                    `json:"group_key,omitempty"`
 	IdempotencyKey string                    `json:"idempotency_key,omitempty"`
 	Params         map[string]any            `json:"params,omitempty"`
 	ErrorMessage   string                    `json:"error_message,omitempty"`
+}
+
+type ExecutionGroupData struct {
+	GroupKey string `json:"group_key"`
 }
 
 type StepStateData struct {

@@ -4,6 +4,7 @@ export type EventType =
   | 'step.log' | 'step.waiting' | 'step.input' | 'step.output' | 'step.goto'
   | 'metrics'
   | 'execution.state'
+  | 'execution.group'
 
 export const ALL_EVENT_TYPES: EventType[] = [
   'workflow.started', 'workflow.completed',
@@ -11,6 +12,7 @@ export const ALL_EVENT_TYPES: EventType[] = [
   'step.log', 'step.waiting', 'step.input', 'step.output', 'step.goto',
   'metrics',
   'execution.state',
+  'execution.group',
 ]
 
 // Unified format for display in shared components.
@@ -64,10 +66,13 @@ export interface ExecutionStateData {
   workflow_name: string
   status: string
   steps?: Record<string, StepStateData>
-  group_key?: string
   idempotency_key?: string
   params?: Record<string, unknown>
   error_message?: string
+}
+
+export interface ExecutionGroupData {
+  group_key: string
 }
 
 export interface StepStateData {

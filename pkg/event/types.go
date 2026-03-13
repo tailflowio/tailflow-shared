@@ -19,6 +19,7 @@ const (
 	StepGoto          EventType = "step.goto"
 	Metrics           EventType = "metrics"
 	ExecutionState    EventType = "execution.state"
+	ExecutionGroup    EventType = "execution.group"
 )
 
 // AllTypes returns all known event types (useful for validation).
@@ -26,7 +27,7 @@ var AllTypes = []EventType{
 	WorkflowStarted, WorkflowCompleted,
 	StepStarted, StepCompleted, StepFailed, StepSkipped,
 	StepLog, StepWaiting, StepInput, StepOutput, StepGoto,
-	Metrics, ExecutionState,
+	Metrics, ExecutionState, ExecutionGroup,
 }
 
 // Event represents a single workflow event.
